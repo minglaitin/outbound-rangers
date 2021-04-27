@@ -12,9 +12,7 @@
           <td><div id="coins_txt" style="display:block;">Coins：0</div></td>
           <td><div id="bullet_txt" style="display:block;">Bullets：10</div></td>
         </tr>
-      </table>     
-      <!-- <button v-on:click="start()" :disabled="started">{{startBtnLabel}}</button>
-      <button v-on:click="restart()">Restart</button> -->
+      </table>
     </div>
 
   </div>
@@ -104,22 +102,8 @@ export default {
       console.log("User database updating... Response:")
       console.log(response)
     }
-    /*component(width, height, color, x, y) {
-      this.width = width;
-      this.height = height;
-      this.x = x;
-      this.y = y;
-      this.update = function() {
-        ctx = myGameArea.context;
-      }
-    }*/
   },
-  mounted() {
-    /*this.interval = setInterval(this.regenerate, 1000);
-    this.canvas = document.getElementById("myCanvas");
-    var ctx = this.canvas.getContext("2d");
-    ctx.fillStyle = "#AAAAAA";
-    ctx.fillRect(500, 50, 50, 50);*/	
+  mounted() {	
     var gameObject = this;
 
     console.log("final score: " + gameObject.finalScore);
