@@ -1,3 +1,4 @@
+// test if two objects collide with each other
 function isColliding( ax, ay, aw, ah,  bx,  by,  bw,  bh){ 
 	if(ay > by + bh || by > ay + ah || ax > bx + bw || bx > ax + aw) 
 		return false; 
@@ -5,7 +6,7 @@ function isColliding( ax, ay, aw, ah,  bx,  by,  bw,  bh){
 		return true; 
 } 
 
-//class bullet
+// class Bullet
 class Bullet {
     constructor(image, x, y) {
         this.image = image;
@@ -24,13 +25,16 @@ class Bullet {
         var betweenY = (y >= this.y) && (y <= this.y + this.height);
         return betweenX && betweenY;
     }
+    // move the position of this object
     move(dx, dy) {
         this.x += dx;
         this.y += dy;
     }
+    // return the y-coordinate of this object
     Y() {
         return this.y;
     }
+    // draw this object on canvas
     draw(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
@@ -39,9 +43,10 @@ class Bullet {
         this.x = this.x + 10;
 
     }
+    // test if this object collides with another obj
     hitTestObject(obj) {
         if (isColliding(this.x, this.y, this.width, this.height,
-            obj.x, obj.y, obj.width, obj.height)) //collison occurs 
+            obj.x, obj.y, obj.width, obj.height)) // collison occurs 
             return true;
 
         else

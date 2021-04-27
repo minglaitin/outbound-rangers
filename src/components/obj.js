@@ -1,3 +1,4 @@
+// test if two objects collide with each other
 function isColliding( ax, ay, aw, ah,  bx,  by,  bw,  bh){ 
 	if(ay > by + bh || by > ay + ah || ax > bx + bw || bx > ax + aw) 
 		return false; 
@@ -5,6 +6,7 @@ function isColliding( ax, ay, aw, ah,  bx,  by,  bw,  bh){
 		return true; 
 } 
 
+// class Obj
 class Obj {
 	constructor(image, x, y, n) {
 		this.image = image;
@@ -32,22 +34,24 @@ class Obj {
 		var betweenY = (y >= this.y) && (y <= this.y + this.height);
 		return betweenX && betweenY;
 	}
+	// move the position of this object
 	move(dx, dy) {
 		this.x += dx;
 		if (this.y + dy > 0) {
 			this.y += dy;
 		}
 	}
+	// return y-coordinate of this object
 	Y() {
 		return this.y;
 	}
-	//draw enemy
+	// draw enemy
 	draw_enemy(ctx, floor, score) {
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.drawImage(this.image, 0, 0, 50, 50);
 		ctx.restore();
-		this.x = this.x - 2 - score/50; //keep moving left
+		this.x = this.x - 2 - score/50; // keep moving left
 		var tryy = this.y + this.speed * 10;
 		while (tryy < 0 || tryy > floor) {
 			this.speed = Math.random() - 0.5;
@@ -56,20 +60,20 @@ class Obj {
 		this.y = tryy; // keep move randomly 
 
 	}
-	//draw me
+	// draw the player character
 	draw_me(ctx, floor) {
 		ctx.save();
 		ctx.translate(this.x, this.y);
 		ctx.drawImage(this.image, 0, 0, 75, 75);
 		ctx.restore();
 		this.dis++;
-		if (this.y < floor) { //fall when on the sky
+		if (this.y < floor) {
+			// fall when on the sky
 			this.y = this.y + 2.5;
 		}
 
 	}
-
-	// test the collison between the obj
+	// test if this object collides with another obj
 	hitTestObject(obj) {
 		if (isColliding(this.x, this.y, this.width, this.height,
 			obj.x, obj.y, obj.width, obj.height)) {

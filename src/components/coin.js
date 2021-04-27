@@ -1,5 +1,4 @@
-//class obstuct
-//class coin or reward
+//class Coin
 class Coin {
     constructor(image, x, y, n) {
         this.image = image;
@@ -21,16 +20,17 @@ class Coin {
             this.originY = this.y;
         }
     }
+    // return y-coordinate of this object
     Y() {
         return this.y;
     }
-    //draw coin
+    // draw coin
     draw(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.drawImage(this.image, 0, 0, 50, 50);
         ctx.restore();
-        this.x = this.x - 2; //keep moving left
+        this.x = this.x - 2; // keep moving left
 
     }
 }
