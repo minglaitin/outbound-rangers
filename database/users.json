@@ -1,0 +1,120 @@
+{
+	"ABC1999":
+	{
+		"userID": "ABC1999",
+		"password": "SecretPW",
+		"lastActiveTime": {
+			"$date": "2021-03-19T20:30:24.683Z"
+		},
+		"highestScore": 50,
+		"accumulatedScore": 1000,
+		"coins": 25,
+		"avatar": "cat.png",
+		"skin": "skin_default.svg",
+		"friendsID": []
+	},
+	"HiHi123":
+	{
+		"userID": "HiHi123",
+		"password": "GoodMorning",
+		"lastActiveTime": {
+			"$date": "2021-03-15T21:19:55.893Z"
+		},
+		"highestScore": 250,
+		"accumulatedScore": 9000,
+		"coins": 550,
+		"avatar": "avatar_default.png",
+		"skin": "skin_default.svg",
+		"friendsID": []
+	},
+	"Killer55":
+	{
+		"userID": "Killer55",
+		"password": "IAmSleepy",
+		"lastActiveTime": {
+			"$date": "2020-12-24T15:46:02.489Z"
+		},
+		"highestScore": 5,
+		"accumulatedScore": 10000,
+		"coins": 10,
+		"avatar": "avatar_default.png",
+		"skin": "skin_default.svg",
+		"friendsID": []
+	},
+	"ChanTaiMan":
+	{
+		"userID": "ChanTaiMan",
+		"password": "123",
+		"lastActiveTime": {
+			"$date": "2022-01-01T00:00:00.001Z"
+		},
+		"highestScore": 0,
+		"accumulatedScore": 0,
+		"coins": 0,
+		"avatar": "dog.png",
+		"skin": "skin_default.svg",
+		"friendsID": [
+		"HiHi123",
+		"ABC1999"
+		]
+	},
+	"Rumble99":
+	{
+		"userID": "Rumble99",
+		"password": "7777",
+		"lastActiveTime": {
+			"$date": "2020-11-23T11:00:59.124Z"
+		},
+		"highestScore": 777,
+		"accumulatedScore": 7777,
+		"coins": 77,
+		"avatar": "avatar_default.png",
+		"skin": "skin_default.svg",
+		"friendsID": []
+	},
+	"BumbleBee":
+	{
+		"userID": "BumbleBee",
+		"password": "Transformer",
+		"lastActiveTime": {
+			"$date": "2013-05-05T22:59:48.554Z"
+		},
+		"highestScore": 1111,
+		"accumulatedScore": 1111,
+		"coins": 1111,
+		"avatar": "mouse.png",
+		"skin": "skin_magician.svg",
+		"friendsID": []
+	},
+	"HappyBirthday":
+	{
+		"userID": "HappyBirthday",
+		"password": "ToMe",
+		"lastActiveTime": {
+			"$date": "2017-08-15T02:03:25.225Z"
+		},
+		"highestScore": 3434,
+		"accumulatedScore": 343434,
+		"coins": 3434,
+		"avatar": "avatar_default.png",
+		"skin": "skin_warrior.svg",
+		"friendsID": []
+	},
+	"test":
+	{
+		"userID": "test",
+		"password": "test",
+		"lastActiveTime": {
+			"$date": "2021-04-18T00:00:37.691Z"
+		},
+		"highestScore": 99,
+		"accumulatedScore": 999,
+		"coins": 9999,
+		"avatar": "avatar_default.png",
+		"skin": "skin_default.svg",
+		"friendsID": [
+			"ChanTaiMan",
+			"HappyBirthday"
+		]
+	}
+}

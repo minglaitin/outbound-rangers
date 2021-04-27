@@ -1,0 +1,50 @@
+{
+	"":
+	{
+		"itemID": 1001,
+		"itemType": "Avatar",
+		"itemName": "Cat",
+		"itemImage": "cat.png",
+		"cost": 150
+	},
+	"":
+	{
+		"itemID": 1002,
+		"itemType": "Avatar",
+		"itemName": "Dog",
+		"itemImage": "dog.png",
+		"cost": 100
+	},
+	"":
+	{
+		"itemID": 1003,
+		"itemType": "Avatar",
+		"itemName": "Mouse",
+		"itemImage": "mouse.png",
+		"cost": 50
+	},
+	"":
+	{
+		"itemID": 2001,
+		"itemType": "Skin",
+		"itemName": "Knight",
+		"itemImage": "skin_knight.svg",
+		"cost": 50
+	},
+	"":
+	{
+		"itemID": 2002,
+		"itemType": "Skin",
+		"itemName": "Magician",
+		"itemImage": "skin_magician.svg",
+		"cost": 100
+	},
+	"":
+	{
+		"itemID": 2003,
+		"itemType": "Skin",
+		"itemName": "Warrior",
+		"itemImage": "skin_warrior.svg",
+		"cost": 150
+	}
+}
