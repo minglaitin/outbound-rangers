@@ -2,6 +2,7 @@
   <div v-if="visible" id="shop">
     <h1>Shop</h1>
 
+    <!-- user info: avatar, userID, coins -->
     <div>
       <div class="user-info">
         <img :src="imagePath( user.avatar )" >
@@ -14,6 +15,7 @@
     </div>
     <div class="clear-float"></div>
 
+    <!-- tabs: switching between avatars and skins -->
     <div class="tab">
       <button v-for="(tab, index) in tabs"
       :key="index"
@@ -21,8 +23,10 @@
       :class="{selected: selectedTab === tab}">{{tab}}</button>
     </div>
     
+    <!-- shop items -->
     <div class="shop-item-container">
-      <!-- List of avatar items -->
+
+      <!-- avatar items -->
       <div v-show="selectedTab === 'Avatar'">
         <ul><li v-for="(avatar, index) in avatars" 
                 :key="index"
@@ -41,12 +45,11 @@
             </li></ul>
       </div>
 
-      <!-- List of skin items -->
+      <!-- skin items -->
       <div v-show="selectedTab === 'Skin'">
-        <ul>
-          <li v-for="(skin, index) in skins" 
-            :key="index"
-            class="shop-item-list">
+        <ul><li v-for="(skin, index) in skins" 
+                :key="index"
+                class="shop-item-list">
             <div class="shop-item">
               <div class="item-card">
                 <p style="text-align: center">{{skin.itemType}}: {{skin.itemName}}</p>
@@ -58,12 +61,11 @@
                 <div class="clear-float"></div>
               </div>
             </div>
-          </li>
-        </ul>
+          </li></ul>
       </div>
+
     </div>
 
-    <!-- <button type="button" id="buttonID" v-on:click="exit()">Go Back</button> -->
   </div>
 
 </template>
@@ -128,7 +130,7 @@ export default {
           itemID: 2001,
           itemType: 'Skin',
           itemName: 'Knight',
-          itemImage: 'logo.png',
+          itemImage: 'skin_knight.svg',
           cost: 50,
           owned: false
         },
@@ -136,7 +138,7 @@ export default {
           itemID: 2002,
           itemType: 'Skin',
           itemName: 'Magician',
-          itemImage: 'logo.png',
+          itemImage: 'skin_magician.svg',
           cost: 100,
           owned: false
         },
@@ -144,13 +146,12 @@ export default {
           itemID: 2003,
           itemType: 'Skin',
           itemName: 'Warrior',
-          itemImage: 'logo.png',
+          itemImage: 'skin_warrior.svg',
           cost: 150,
           owned: false
         }
       ],
       ownership: [],
-      // coin: 500,
       tabs: ['Avatar', 'Skin'],
       selectedTab: 'Avatar'
     }
@@ -161,14 +162,11 @@ export default {
       this.$emit("exit", this.$options.name, "MainMenu")
     },
     async buyItem(item) {
-      // this.coin -= item.cost
-      // item.owned = true
-
-      //Update user object (direct mutation of parent's object!)
+      // Update user object (direct mutation of parent's object!)
       this.user.coins -= item.cost
       await this.updateUserDatabase()
 
-      //Update ownership database
+      // Update ownership database
       const url = 'http://localhost:4040/ownership/create/'
       const response = await axios.post(url, {
         userID: this.user.userID,
@@ -179,22 +177,14 @@ export default {
       console.log(response)
     },
     imagePath(path) {
+      // for displaying image files
       if (!path) {
         path = "avatar_default.png";
       }
       return require('../assets/' + path);
     },
     buyButtonLabel(item) {
-      // if (item.owned == true) {
-      //   return 'Owned'
-      // }
-      // else if (this.coin < item.cost) {
-      //   return 'Not enough coins'
-      // }
-      // else {
-      //   return 'Buy'
-      // }
-
+      // change the label of buy button according to ownership and coins
       const owned = this.checkOwned(item)
       if (owned === true) {
         return 'Owned'
@@ -242,9 +232,8 @@ export default {
       console.log(response2)
     },
     async updateUserDatabase(){
-      //Update user object (not needed as direct mutation of parent's object!)
-      // this.$emit("update", this.user)
-      //Update user database
+      // Update user object (not needed as direct mutation of parent's object!)
+      // Update user database
       const url = 'http://localhost:4040/userdata/update/' + this.user._id
       const response = await axios.post(url, this.user);
       console.log(response);
@@ -263,7 +252,6 @@ export default {
   }
   .user-info {
     float: left;
-    /*border: 1px solid #bbb;*/
     border-radius: 3px;
     padding: 10px;
   }
@@ -276,7 +264,6 @@ export default {
   }
   .user-coin {
     float: right;
-    /*border: 1px solid #bbb;*/
     border-radius: 3px;
     padding: 15px;
   }
