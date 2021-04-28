@@ -77,6 +77,7 @@ div#Signup {
   align-items: center;
   justify-content: center;
   height: 100%;
+  box-sizing: border-box;
 }
 div.LoginBox {
   border: 3px solid #eee;
