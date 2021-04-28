@@ -22,7 +22,6 @@
         </tr>
       </tbody>
     </table>
-<!--    <br><button type="button" v-on:click="exit()">Go Back</button>-->
   </div>
 </template>
 
@@ -105,33 +104,24 @@ export default {
 </script>
 
 <style scoped>
-#LeaderBoard {
-  /*margin-top: 60px;*/
-}
 button.boardElement {
   border: none;
   color: black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  /*display: inline-block;*/
   font-size: 16px;
-  /*margin: -1px -1px;*/
   background-color: transparent;
 }
 table.scrollable{
   border: 1px solid black;
-  /*border-spacing: 0px;*/
   border-collapse: collapse;
-  /*margin: 32px 256px;*/
   padding: 32px 32px;
-  /*alignment: center;*/
   text-align: center;
   background-color: ghostwhite;
 }
 table.scrollable tbody{
   display: block;
-  /*height: 128px;*/
   max-height: 448px;
   overflow-y: scroll;
   overflow-x: hidden;

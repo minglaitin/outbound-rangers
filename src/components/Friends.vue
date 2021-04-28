@@ -13,14 +13,12 @@
     <input v-model = "inputString" v-on:input="updateArray(inputString)" id="inputID" placeholder="Enter User ID here"><br><br>
     <button type="button" id="buttonAdd" v-on:click="add(inputString)">Add Friend</button>
     <button type="button" id="buttonRemove" v-on:click="remove(inputString)">Remove Friend</button>
-<!--    <button type="button" v-on:click="exit()">Go Back</button>-->
   </div>
 </template>
 
 <script>
 import ScrollableTable from './reusable/ScrollableTable.vue'
 import axios from "axios";
-// import axios from "axios";
 
 export default {
   name: "Friends",

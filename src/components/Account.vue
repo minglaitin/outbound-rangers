@@ -1,6 +1,5 @@
 <template>
   <div v-if="visible" id="account" class="outer-container">
-<!--    <NavBar></NavBar>-->
     <div class="main-content">
       <h1>Account</h1>
       <div>
@@ -32,11 +31,9 @@
 </template>
 
 <script>
-// import NavBar from '../components/reusable/navigationBar.vue'
 import axios from "axios";
-// import '../../assets/style.css'
+
 export default {
-  // components: { NavBar },
   name: "Account",
   props:{
     visible: {
@@ -103,6 +100,7 @@ export default {
   },
   methods: {
     imagePath(path) {
+      // for displaying images
       if (!path) {
         path = "avatar_default.png";
       }

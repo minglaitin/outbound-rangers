@@ -2,14 +2,6 @@
   <div id="app">
     <navigationBar v-bind:user = "this.user" v-on:logout="logout()"></navigationBar>
     <router-view v-bind:user = "this.user" v-bind:userData = "this.userData" v-bind:guest="this.userTypeGuest" v-on:login="login" v-on:reload="loadUserData" class="content"></router-view>
-<!--    <LoginPage v-bind:visible= "visibility.Login" v-bind:user-data="userData" v-on:exit="login"></LoginPage>-->
-<!--    <MainMenu v-bind:guest="userTypeGuest" v-bind:user="user" v-bind:visible= "visibility.MainMenu" v-on:exit="goto"></MainMenu>-->
-<!--    <Game v-bind:user="user" v-bind:visible= "visibility.Game" v-on:exit="goto"></Game>-->
-<!--    <Shop v-bind:user="user" v-bind:items="itemData" v-bind:ownership="ownershipData" v-bind:visible= "visibility.Shop" v-on:exit="goto"></Shop>-->
-<!--    <LeaderBoard v-bind:guest="userTypeGuest" v-bind:user="user" v-bind:userData="userData" v-bind:visible= "visibility.LeaderBoard" v-on:exit="goto"></LeaderBoard>-->
-<!--    <Account v-bind:user="user" v-bind:userData="userData" v-bind:ownedItemData="ownershipData" v-bind:visible= "visibility.Account" v-on:exit="goto"></Account>-->
-<!--    <Friends v-bind:user="user" v-bind:userData="userData" v-bind:visible= "visibility.Friends" v-on:exit="goto"></Friends>-->
-<!--    <button v-on:click="loadData()">Press me to load data.</button>-->
   </div>
 </template>
 
@@ -26,24 +18,15 @@
   background-color: #fff;
   
   overflow: auto;
-  /*background-image: url("./assets/background.png");*/
 }
 
 .content{
   margin-left: 200px;
   padding: 5px 40px;
-  /*text-align: center;*/
 }
 </style>
 
 <script>
-// import LoginPage from './components/LoginPage.vue'
-// import MainMenu from "./components/MainMenu";
-// import LeaderBoard from "./components/LeaderBoard";
-// import Shop from "./components/Shop";
-// import Game from "./components/Game";
-// import Account from "./components/Account";
-// import Friends from "./components/Friends";
 import navigationBar from "./components/reusable/navigationBar";
 import axios from 'axios'
 
@@ -51,13 +34,6 @@ export default {
   name: 'App',
   components: {
     navigationBar
-    // LoginPage,
-    // MainMenu,
-    // LeaderBoard,
-    // Shop,
-    // Game,
-    // Account,
-    // Friends
   },
   async mounted(){
     await this.loadUserData()

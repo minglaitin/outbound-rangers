@@ -12,7 +12,7 @@
         </span>
         <button type="submit" class="button" id="buttonID">Login</button>
       </form>
-<!--      <button type="submit" class="button" id="buttonPassword" v-on:click="loginGuest();">Login as guest</button>-->
+
       <p>Do not have an account? <router-link to='/signup'>Create one</router-link> now!</p>
     </div>
   </div>
@@ -85,7 +85,6 @@ export default {
 
 <style scoped>
 div#LoginPage {
-  /*margin-top: 128px;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,7 +95,6 @@ div.LoginBox {
   border-radius: 7px;
   width: 400px;
   margin: 0 auto;
-  /*margin: 16px 512px;*/
   padding: 26px 40px 20px;
   background-color: white;
 }
@@ -113,14 +111,11 @@ div.buttons {
   width: 100%;
   margin: 10px 0px;
   padding: 9px 10px;
-  /*padding: 16px 32px;*/
   background: #41b883;
-  /*border: none;*/
   border-width: 1px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
-  /*transition-duration: 0.4s;*/
 }
 
 .LoginBox h1 {
