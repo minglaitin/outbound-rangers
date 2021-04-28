@@ -157,10 +157,6 @@ export default {
     }
   },
   methods: {
-    exit() {
-      console.log("Exited: " + this.$options.name)
-      this.$emit("exit", this.$options.name, "MainMenu")
-    },
     async buyItem(item) {
       // Update user object (direct mutation of parent's object!)
       this.user.coins -= item.cost

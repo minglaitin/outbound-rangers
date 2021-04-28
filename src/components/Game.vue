@@ -56,10 +56,6 @@ export default {
     }
   },
   methods: {
-    exit() {
-      console.log("Exited: " + this.$options.name)
-      this.$emit("exit", this.$options.name, "MainMenu")
-    },
     imagePath(path) {
       // for displaying images
       if (!path) {

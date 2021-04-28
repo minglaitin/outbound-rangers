@@ -60,10 +60,6 @@ export default {
   //   if (found !== undefined) this.user = found
   // },
   methods: {
-    // exit() {
-    //   console.log("Exited: " + this.$options.name)
-    //   this.$emit("exit", this.$options.name, "MainMenu")
-    // },
     add(input){
       // Check if input is the same as ID of current user
       // Note that empty string would be be true
