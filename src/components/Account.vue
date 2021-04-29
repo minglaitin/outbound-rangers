@@ -3,7 +3,7 @@
     <div class="main-content">
       <h1>Account</h1>
       <div>
-          //display user information
+          <!--display user information-->
           <img :src="imagePath(selectedAvatar)" height="256px">
           <img :src="imagePath(selectedSkin)" height="128px">
           <p> UserID: {{ user.userID }} </p>
@@ -12,13 +12,13 @@
           <p> Accumulated Score: {{ user.accumulatedScore }} </p>
           <p> Coins: {{ user.coins }} </p>
       </div>
-      //selection for avatar
+      <!--selection for avatar-->
       <label for="avatar">Owned Avatars:</label>
       <select id="avatar" v-model="selectedAvatar">
         <option value="avatar_default.png">Null</option>
         <option v-for="(avatar, index) in ownedAvatar" v-bind:key="index" v-bind:value="avatar.itemImage">{{ avatar.itemName }}</option>
       </select>
-      //selection for skin
+      <!--selection for skin-->
       <label for="skin">  Owned Skins:</label>
       <select id="skin" v-model="selectedSkin">
         <option value="skin_default.svg">Null</option>
