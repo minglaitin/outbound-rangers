@@ -45,13 +45,6 @@ export default {
       confirmPassword: ""
     }
   },
-  // async mounted(){
-  //   const url = 'http://localhost:4040/userdata/'
-  //   const response = await axios.get(url)
-  //   console.log(response)
-  //   console.log("Data mounted successfully.")
-  //   this.userData = response.data
-  // },
   methods: {
     async changePassword(){
       console.log("Requested update password procedure.");
