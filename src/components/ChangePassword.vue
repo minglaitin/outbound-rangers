@@ -121,7 +121,6 @@ div.LoginBox {
   text-align: center;
   margin: 0px 0px 20px;
 }
-
 .LoginBox input:not([type="checkbox"]) {
   display: block;
   box-sizing: border-box;
@@ -151,14 +150,10 @@ div.LoginBox {
   width: 100%;
   margin: 10px 0px;
   padding: 9px 10px;
-  /*padding: 16px 32px;*/
-  /*background: #41b883;*/
   background: lightskyblue;
-  /*border: none;*/
   border-width: 1px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
-  /*transition-duration: 0.4s;*/
 }
 </style>
