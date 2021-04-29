@@ -26,6 +26,8 @@
 
       <br><br><button v-on:click="equip">Equip</button>
 
+      <br><br><button v-on:click="equip"><router-link to='/change_pw'>Change Password</router-link></button>
+
     </div>
   </div>
 </template>
@@ -122,4 +124,8 @@ export default {
 </script>
 
 <style scoped>
+button {
+  font-size: medium;
+  font-family: Verdana, Arial, sans-serif;
+}
 </style>

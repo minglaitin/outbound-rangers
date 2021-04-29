@@ -116,5 +116,22 @@
 			"ChanTaiMan",
 			"HappyBirthday"
 		]
+	},
+	"":
+	{
+		"userID": "testing",
+		"password": "123",
+		"lastActiveTime": {
+			"$date": "2021-04-18T00:00:37.691Z"
+		},
+		"highestScore": 0,
+		"accumulatedScore": 0,
+		"coins": 100,
+		"avatar": "avatar_default.png",
+		"skin": "skin_default.svg",
+		"friendsID": [
+			"test",
+			"BumbleBee"
+		]
 	}
 }

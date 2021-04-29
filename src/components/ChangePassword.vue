@@ -1,10 +1,10 @@
 <template>
   <div id="Signup">
     <div class="LoginBox">
-      <h1>Sign Up</h1>
-      <form @submit.prevent="signup()">
-        <label>New Account ID:</label>
-        <input v-model = "accountID" id="inputID" placeholder="Enter account id here" required>
+      <h1>Change Password</h1>
+      <form @submit.prevent="changePassword()">
+        <label>Old Password:</label>
+        <input type="password" v-model = "oldPassword" id="inputOldPassword" placeholder="Enter old password here" required>
         <label>New Password:</label>
         <input type="password" v-model = "password" id="inputPassword" placeholder="Enter password here" required>
         <label>Confirm Password:</label>
@@ -12,7 +12,7 @@
         <span class="toggle-pw">
           <input type="checkbox" id="toggleCheckbox" v-on:click="togglePassword()"><label> Show Password Input</label>
         </span>
-        <button type="submit" class="button">Signup</button>
+        <button type="submit" class="button">Change</button>
       </form>
     </div>
   </div>
@@ -22,68 +22,80 @@
 import axios from "axios";
 
 export default {
-  name: "Signup",
-  data() {
-    return{
-      accountID: "",
-      password: "",
-      confirmPassword: "",
-      userData: []
+  name: "ChangePassword",
+  props:{
+    user:{
+      default: {
+        userID: "",
+        password: "",
+        lastActiveTime: "",
+        highestScore: 0,
+        accumulatedScore: 0,
+        coins: 0,
+        avatar: "avatar_default.png",
+        skin: "skin_default.svg",
+        friendsID: []
+      }
     }
   },
-  async mounted(){
-    const url = 'http://localhost:4040/userdata/'
-    const response = await axios.get(url)
-    console.log(response)
-    console.log("Data mounted successfully.")
-    this.userData = response.data
+  data() {
+    return{
+      oldPassword: "",
+      password: "",
+      confirmPassword: ""
+    }
   },
+  // async mounted(){
+  //   const url = 'http://localhost:4040/userdata/'
+  //   const response = await axios.get(url)
+  //   console.log(response)
+  //   console.log("Data mounted successfully.")
+  //   this.userData = response.data
+  // },
   methods: {
-    togglePassword() {
-      let checkBox = document.getElementById("toggleCheckbox"); // Get the checkbox
-      let field = document.getElementById("inputPassword"); // Get the password field
-      let fieldConfirm = document.getElementById("inputConfirmPassword");
+    async changePassword(){
+      console.log("Requested update password procedure.");
 
-
-      // If the checkbox is checked, display the password
-      if (checkBox.checked === true) {
-        field.type = "text";
-        fieldConfirm.type = "text";
-      } else {
-        field.type = "password";
-        fieldConfirm.type = "password";
+      //Check password and confirm password
+      if (this.oldPassword.localeCompare(this.user.password) !== 0){
+        alert("Inputted password and current password do not match!")
+        return
       }
-    },
-    async signup(){
-      console.log("Requested signup procedure.");
 
       //Check password and confirm password
       if (this.password.localeCompare(this.confirmPassword) !== 0){
         alert("Inputted password and confirm password do not match!")
         return
       }
-      //Check if the ID is taken already
-      const currentInputID = this.accountID
-      let duplicate = this.userData.filter(
-          function (element) {
-            return element.userID.localeCompare(currentInputID) === 0
-          }
-      )
-      if (duplicate.length !== 0){
-        alert("The input ID: \"" + currentInputID + "\" is already taken.")
-        return
-      }
-      //Post data to database
-      const url = 'http://localhost:4040/userdata/create'
-      const response = await axios.post(url, {
-        userID: this.accountID,
-        password: this.password
-      });
-      console.log(response);
+
+      //Update current Password
+      this.user.password = this.password
+      //Update user database
+      const url = 'http://localhost:4040/userdata/update/' + this.user._id
+      const response = await axios.post(url, this.user)
+      console.log("User database updating... Response:")
+      console.log(response)
 
       this.$emit("reload")
-      await this.$router.push('/') //Redirect to Login page
+      await this.$router.push('/account') //Redirect to Login page
 
+    },
+    togglePassword() {
+      let checkBox = document.getElementById("toggleCheckbox"); // Get the checkbox
+      let fieldOld = document.getElementById("inputOldPassword");
+      let field = document.getElementById("inputPassword");// Get the password field
+      let fieldConfirm = document.getElementById("inputConfirmPassword");
+
+      // If the checkbox is checked, display the password
+      if (checkBox.checked === true) {
+        fieldOld.type = "text";
+        field.type = "text";
+        fieldConfirm.type = "text";
+      } else {
+        fieldOld.type = "password";
+        field.type = "password";
+        fieldConfirm.type = "password";
+      }
     }
   }
 }
@@ -141,7 +153,7 @@ div.LoginBox {
   padding: 9px 10px;
   /*padding: 16px 32px;*/
   /*background: #41b883;*/
-  background: lightcoral;
+  background: lightskyblue;
   /*border: none;*/
   border-width: 1px;
   border-radius: 3px;
