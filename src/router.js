@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import LoginPage from './components/LoginPage'
 import Signup from "./components/Signup";
+import ChangePassword from "./components/ChangePassword";
 // import MainMenu from "./components/MainMenu";
 import LeaderBoard from "./components/LeaderBoard";
 import Shop from "./components/Shop";
@@ -16,6 +17,7 @@ export default new Router({
     routes: [
         {path: '/', component: LoginPage},
         {path: '/signup', component: Signup},
+        {path: '/change_pw', component: ChangePassword},
         {path: '/leaderboard', component: LeaderBoard},
         {path: '/shop', component: Shop},
         {path: '/game', component: Game},

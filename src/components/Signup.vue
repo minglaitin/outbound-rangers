@@ -8,7 +8,10 @@
         <label>New Password:</label>
         <input type="password" v-model = "password" id="inputPassword" placeholder="Enter password here" required>
         <label>Confirm Password:</label>
-        <input type="password" v-model = "confirmPassword" placeholder="Enter the password again" required>
+        <input type="password" v-model = "confirmPassword" id="inputConfirmPassword" placeholder="Enter the password again" required>
+        <span class="toggle-pw">
+          <input type="checkbox" id="toggleCheckbox" v-on:click="togglePassword()"><label> Show Password Input</label>
+        </span>
         <button type="submit" class="button">Signup</button>
       </form>
     </div>
@@ -36,6 +39,21 @@ export default {
     this.userData = response.data
   },
   methods: {
+    togglePassword() {
+      let checkBox = document.getElementById("toggleCheckbox"); // Get the checkbox
+      let field = document.getElementById("inputPassword"); // Get the password field
+      let fieldConfirm = document.getElementById("inputConfirmPassword");
+
+
+      // If the checkbox is checked, display the password
+      if (checkBox.checked === true) {
+        field.type = "text";
+        fieldConfirm.type = "text";
+      } else {
+        field.type = "password";
+        fieldConfirm.type = "password";
+      }
+    },
     async signup(){
       console.log("Requested signup procedure.");
 
@@ -91,7 +109,8 @@ div.LoginBox {
   text-align: center;
   margin: 0px 0px 20px;
 }
-.LoginBox input {
+
+.LoginBox input:not([type="checkbox"]) {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -101,6 +120,14 @@ div.LoginBox {
   border: #ccc 1px solid;
   border-radius: 3px;
   border-bottom: #ccc 2px solid;
+}
+.toggle-pw {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.LoginBox input[type="checkbox"] {
+  display: inline;
 }
 .button {
   color: black;

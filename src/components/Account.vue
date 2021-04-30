@@ -24,8 +24,11 @@
         <option value="skin_default.svg">Null</option>
         <option v-for="(skin, index) in ownedSkin" v-bind:key="index" v-bind:value="skin.itemImage">{{ skin.itemName }}</option>
       </select>
-
-      <br><br><button v-on:click="equip">Equip</button>
+      
+      <br>
+      <button v-on:click="equip">Equip</button>
+      <br>
+      <router-link to='/change_pw'><button>Change Password</button></router-link>
 
     </div>
   </div>
@@ -123,4 +126,12 @@ export default {
 </script>
 
 <style scoped>
+button {
+  font-size: medium;
+  font-family: Verdana, Arial, sans-serif;
+  text-decoration: none;
+  cursor: default;
+  color: black;
+  margin-top: 16px;
+}
 </style>
