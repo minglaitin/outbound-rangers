@@ -49,15 +49,21 @@ export default {
     async changePassword(){
       console.log("Requested update password procedure.");
 
-      //Check password and confirm password
+      //Check old password and current password
       if (this.oldPassword.localeCompare(this.user.password) !== 0){
         alert("Inputted password and current password do not match!")
         return
       }
 
-      //Check password and confirm password
+      //Check new password and confirm password
       if (this.password.localeCompare(this.confirmPassword) !== 0){
         alert("Inputted password and confirm password do not match!")
+        return
+      }
+
+      //Check new password and current password
+      if (this.password.localeCompare(this.user.password) === 0){
+        alert("New password is the same as current password!")
         return
       }
 
