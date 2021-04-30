@@ -36,3 +36,5 @@ https://codepen.io/g13nn/pen/LhCIg
 
 ## Image sources
 https://www.irasutoya.com/
+
+https://www.flaticon.com/
