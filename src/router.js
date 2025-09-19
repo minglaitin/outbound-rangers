@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import LoginPage from './components/LoginPage'
 import Signup from "./components/Signup";
 import ChangePassword from "./components/ChangePassword";
-// import MainMenu from "./components/MainMenu";
 import LeaderBoard from "./components/LeaderBoard";
 import Shop from "./components/Shop";
 import Game from "./components/Game";

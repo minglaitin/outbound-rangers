@@ -1,35 +1,16 @@
 const express = require('express')
 const server = express()
 const cors = require('cors')
-const MongoClient = require('mongodb').MongoClient;
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-const userRoute = require('./server/routes/user.route.js')
-const itemRoute = require('./server/routes/item.route.js')
+const MongoClient = require('mongodb').MongoClient
+const ObjectId = require('bson').ObjectId
 require('dotenv').config({ path: ".env.local" })
 const uri = process.env.MONGODB_URI
-const ObjectId = require('bson').ObjectId
 
 server.use(cors())
 server.use(bodyParser.json())
-server.use('/userdata', userRoute)
-server.use('/itemdata', itemRoute)
 
 const port = process.env.PORT || 4040
-
-//Connecting to database
-mongoose.Promise = global.Promise
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-}).then(() => {
-    console.log('MongoDB database with mongoose connected.')
-}).catch((error) =>{
-    console.log(error)
-})
-
 let database;
 
 server.listen(port, () => {
