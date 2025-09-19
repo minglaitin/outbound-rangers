@@ -32,7 +32,7 @@ export default {
     }
   },
   async mounted(){
-    const url = 'http://localhost:4040/userdata/'
+    const url = 'http://localhost:4040/usersdata/'
     const response = await axios.get(url)
     console.log(response)
     console.log("Data mounted successfully.")
@@ -74,11 +74,20 @@ export default {
         return
       }
       //Post data to database
-      const url = 'http://localhost:4040/userdata/create'
-      const response = await axios.post(url, {
+      const url = 'http://localhost:4040/usersdata/create'
+      const newUser = {
         userID: this.accountID,
-        password: this.password
-      });
+        password: this.password,
+        lastActiveTime: new Date().toISOString(),
+        highestScore: 0,
+        accumulatedScore: 0,
+        coins: 0,
+        avatar: "avatar_default.png",
+        skin: "skin_default.svg",
+        friendsID: [],
+        ownedItems: [],
+      }
+      const response = await axios.post(url, newUser);
       console.log(response);
 
       this.$emit("reload")
@@ -130,7 +139,6 @@ div.LoginBox {
   display: inline;
 }
 .button {
-  color: black;
   font-size: inherit;
   font-family: inherit;
   text-align: center;
@@ -139,14 +147,10 @@ div.LoginBox {
   width: 100%;
   margin: 10px 0px;
   padding: 9px 10px;
-  /*padding: 16px 32px;*/
-  /*background: #41b883;*/
   background: lightcoral;
-  /*border: none;*/
   border-width: 1px;
   border-radius: 3px;
   color: white;
   cursor: pointer;
-  /*transition-duration: 0.4s;*/
 }
 </style>

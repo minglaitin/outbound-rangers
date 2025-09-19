@@ -70,8 +70,8 @@ export default {
       //Update current Password
       this.user.password = this.password
       //Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user)
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const response = await axios.post(url, {password: this.user.password})
       console.log("User database updating... Response:")
       console.log(response)
 

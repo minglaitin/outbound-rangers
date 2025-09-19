@@ -48,15 +48,6 @@ export default {
       searchData: []
     }
   },
-  // async mounted(){
-  //   const url = 'http://localhost:4040/userdata/'
-  //   const response = await axios.get(url)
-  //   this.userData = response.data
-  //
-  //   const currentID = sessionStorage.getItem('currentUserID')
-  //   let found = this.userData.find(element => element.userID.localeCompare(currentID) === 0)
-  //   if (found !== undefined) this.user = found
-  // },
   methods: {
     add(input){
       // Check if input is the same as ID of current user
@@ -143,10 +134,10 @@ export default {
     },
     async updateCurrentUser(){
       //Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user)
-      console.log("User database updating... Response:")
-      console.log(response)
+
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const response = await axios.post(url, {friendsID: this.user.friendsID})
+      console.log("friend list updated", response)
     }
   }
 }

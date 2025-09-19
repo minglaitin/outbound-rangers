@@ -54,7 +54,8 @@ export default {
         coins: 0,
         avatar: "avatar_default.png",
         skin: "skin_default.svg",
-        friendsID: []
+        friendsID: [],
+        ownedItems: []
       }
     },
     userData : {
@@ -71,34 +72,20 @@ export default {
   },
   async mounted() {
     //Load item data from database
-    const urlItem = 'http://localhost:4040/itemdata/'
+    const urlItem = 'http://localhost:4040/itemsdata/'
     const responseItem = await axios.get(urlItem)
     const itemData = responseItem.data
-    console.log("Item database loading... Response:")
-    console.log(responseItem)
-
-    //Load ownership data from database
-    const url = 'http://localhost:4040/ownership/'
-    const response = await axios.get(url)
-
-    //Get relations that are related to current user only
-    const currentUserID = this.user.userID
-    const ownershipData = response.data.filter(
-        function (element) {
-          return element.userID.localeCompare(currentUserID) === 0
-        }
-    )
-    console.log("Ownership database loading... Response:")
-    console.log(response)
 
     //Extracting useful information
     for(const item of itemData)
-      for(const ownedItem of ownershipData)
-        if (item.itemID === ownedItem.itemID) {
-          if (item.itemType.localeCompare("Avatar") === 0)
+      for(const ownedItemID of this.user.ownedItems)
+        if (item.itemID === ownedItemID) {
+          if (item.itemType.localeCompare("Avatar") === 0) {
             this.ownedAvatar.push(item)
-          else if(item.itemType.localeCompare("Skin") === 0)
+          }
+          else if(item.itemType.localeCompare("Skin") === 0) {
             this.ownedSkin.push(item)
+          }
         }
 
   },
@@ -115,11 +102,21 @@ export default {
       this.user.avatar = this.selectedAvatar
       this.user.skin = this.selectedSkin
 
+      const newData = {
+        avatar: this.user.avatar,
+        skin: this.user.skin
+      };
+
       //Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user)
-      console.log("User database updating... Response:")
-      console.log(response)
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      // console.log(url)
+      try {
+        const response = await axios.post(url, newData)
+        console.log("Avatar/Skin updated", response)
+      } catch (err) {
+        console.log(err, "in Account.vue")
+      }
+      
     }
   }
 }

@@ -31,11 +31,13 @@ export default {
     },
     async updateTime(){
       this.user.lastActiveTime = new Date().toISOString()
-      console.log(this.user.lastActiveTime)
+      const newData = {
+        lastActiveTime: this.user.lastActiveTime
+      }
       //Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user);
-      console.log(response);
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const response = await axios.post(url, newData);
+      console.log("last active time updated upon logout", response);
     }
   }
 }

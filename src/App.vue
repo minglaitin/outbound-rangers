@@ -40,39 +40,8 @@ export default {
   },
   data () {
     return {
-      // node: {
-      //   Login: "Login",
-      //   MainMenu: "MainMenu",
-      //   Game: "Game",
-      //   Shop: "Shop",
-      //   LeaderBoard: "LeaderBoard",
-      //   Account: "Account",
-      //   Friends: "Friends"
-      // },
-      // visibility: {
-      //   "Login": true,
-      //   "MainMenu": false,
-      //   "Game": false,
-      //   "Shop": false,
-      //   "LeaderBoard": false,
-      //   "Account": false,
-      //   "Friends": false
-      // },
       userTypeGuest: true,
-      user: {
-        // userID: "ChanTaiMan",
-        // password: "123",
-        // lastActiveTime: "2022-01-01-00-00",
-        // highestScore: 0,
-        // accumulatedScore: 0,
-        // coins: 0,
-        // avatar: "avatar_default.png",
-        // skin: "skin_default.png",
-        // friendsID: [
-        //   "HiHi123",
-        //   "ABC1999"
-        // ]
-      },
+      user: {},
       userData: [
         {
           userID: "ABC1999",
@@ -180,7 +149,6 @@ export default {
       this.userTypeGuest = found === undefined
       if (this.userTypeGuest === false) {
         this.user = found
-        console.log("Account: " + this.user.userID + " Password: " + this.user.password)
       }
     },
     logout(){
@@ -197,10 +165,9 @@ export default {
       }
     },
     async loadUserData(){
-      const url = 'http://localhost:4040/userdata/'
+      const url = 'http://localhost:4040/usersdata/'
       const response = await axios.get(url)
       this.userData = response.data
-      console.log(response)
     }
   }
 }

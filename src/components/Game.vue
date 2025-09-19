@@ -65,7 +65,7 @@ export default {
     },
     gameEndUpdate(score, coin) {
       // update scores and coins of user
-      this.user.coins += coin * 10;
+      this.user.coins += coin;
       this.user.accumulatedScore += score;
       if (score > this.user.highestScore) {
         this.user.highestScore = score;
@@ -74,17 +74,19 @@ export default {
     },
     async updateCurrentUser(){
       //Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user)
-      console.log("User database updating... Response:")
-      console.log(response)
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const newData = {
+        coins: this.user.coins,
+        highestScore: this.user.highestScore,
+        accumulatedScore: this.user.accumulatedScore,
+
+      }
+      const response = await axios.post(url, newData)
+      console.log("Game result updated", response)
     }
   },
   mounted() {	
     var gameObject = this;
-
-    console.log("final score: " + gameObject.finalScore);
-    console.log("final coins: " + gameObject.finalCoinsEarned);
 
     var canvas = document.getElementById("myCanvas");
     var context = canvas.getContext("2d");

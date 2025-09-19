@@ -38,6 +38,10 @@ let userSchema = new Schema({
         type: Array,
         default: []
     },
+    ownedItems: {
+        type: Array,
+        default: []
+    }
 }, {
     collection: 'users'
 })

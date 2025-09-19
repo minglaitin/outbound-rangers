@@ -19,8 +19,6 @@
 </template>
 
 <script>
-// import axios from "axios";
-
 export default {
   name: "LoginPage",
   props:{
@@ -38,11 +36,6 @@ export default {
       password: ""
     }
   },
-  // async mounted(){
-  //   const url = 'http://localhost:4040/userdata/'
-  //   const response = await axios.get(url)
-  //   this.userData = response.data
-  // },
   methods: {
     async login(){
       console.log("Attempt to login as user")

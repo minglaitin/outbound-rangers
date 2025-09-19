@@ -160,17 +160,16 @@ export default {
     async buyItem(item) {
       // Update user object (direct mutation of parent's object!)
       this.user.coins -= item.cost
-      await this.updateUserDatabase()
+      this.user.ownedItems.push(item.itemID)
 
-      // Update ownership database
-      const url = 'http://localhost:4040/ownership/create/'
-      const response = await axios.post(url, {
-        userID: this.user.userID,
-        itemID: item.itemID
-      });
-      await this.loadDatabase()
-      console.log("Inserted new entry to ownership database")
-      console.log(response)
+      const newData = {
+        coins: this.user.coins,
+        ownedItems: this.user.ownedItems
+      }
+
+      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const response = await axios.post(url, newData);
+      console.log("User coins & items updated", response);
     },
     imagePath(path) {
       // for displaying image files
@@ -193,11 +192,9 @@ export default {
       }
     },
     checkOwned(item){
-      //Check if item is owned
-      const currentUserID = this.user.userID
-      const owned = this.ownership.find(
-          function (element) {
-            return element.userID.localeCompare(currentUserID) === 0 && element.itemID === item.itemID
+      // Check if item is owned
+      const owned = this.user.ownedItems.find(element => {
+            return element === item.itemID
           }
       )
 
@@ -205,7 +202,7 @@ export default {
     },
     async loadDatabase(){
       // Load item database when page is loaded
-      const url = 'http://localhost:4040/itemdata/'
+      const url = 'http://localhost:4040/itemsdata/'
       const response = await axios.get(url)
       this.avatars = response.data.filter(
           function (element) {
@@ -217,23 +214,8 @@ export default {
             return element.itemType.localeCompare("Skin") === 0
           }
       )
-      console.log("Item database loading... Response:")
-      console.log(response)
-
-      // Load ownership database when page is loaded
-      const url2 = 'http://localhost:4040/ownership/'
-      const response2 = await axios.get(url2)
-      this.ownership = response2.data
-      console.log("Ownership database loading... Response:")
-      console.log(response2)
+      console.log("Item database loaded", response)
     },
-    async updateUserDatabase(){
-      // Update user object (not needed as direct mutation of parent's object!)
-      // Update user database
-      const url = 'http://localhost:4040/userdata/update/' + this.user._id
-      const response = await axios.post(url, this.user);
-      console.log(response);
-    }
   }
 }
 </script>
