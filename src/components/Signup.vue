@@ -12,6 +12,7 @@
         <span class="toggle-pw">
           <input type="checkbox" id="toggleCheckbox" v-on:click="togglePassword()"><label> Show Password Input</label>
         </span>
+        <p id="warn">This project was created for learning purpose. Do <strong>NOT</strong> enter any important data in this site.</p>
         <button type="submit" class="button">Signup</button>
       </form>
     </div>
@@ -152,5 +153,13 @@ div.LoginBox {
   border-radius: 3px;
   color: white;
   cursor: pointer;
+}
+#warn {
+  margin: 25px 0 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: mistyrose;
+  border: 1px solid lightpink;
+  border-radius: 2px;
 }
 </style>

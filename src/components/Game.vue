@@ -5,7 +5,7 @@
       <canvas id="myCanvas" width="600" height="400" style="border:1px solid #d3d3d3;">
         Your browser does not support the HTML5 canvas tag.
       </canvas>
-      <div id="message_txt" style="display:block;">OUTBOUND RANGERS</div>
+      <div id="message_txt" style="display:block;">Press &lt;space&gt; to jump, press &lt;Z&gt; to shoot.</div>
       <table style="width:100%">
         <tr>
           <td><div id="score_txt" style="display:block;">Scores：0</div></td>
