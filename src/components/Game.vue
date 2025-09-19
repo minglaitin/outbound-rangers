@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import Obj from '@/components/obj'
-import Coin from '@/components/coin'
-import Bullet from '@/components/bullet'
+import Obj from '@/components/game_components/obj'
+import Coin from '@/components/game_components/coin'
+import Bullet from '@/components/game_components/bullet'
 import axios from "axios"
 
 export default {
