@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     async login(){
-      console.log("Attempt to login as user")
 
       //Checking
       const inputID = this.accountID

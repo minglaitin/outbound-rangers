@@ -168,8 +168,7 @@ export default {
       }
 
       const url = 'http://localhost:4040/usersdata/update/' + this.user._id
-      const response = await axios.post(url, newData);
-      console.log("User coins & items updated", response);
+      await axios.post(url, newData);
     },
     imagePath(path) {
       // for displaying image files
@@ -214,7 +213,6 @@ export default {
             return element.itemType.localeCompare("Skin") === 0
           }
       )
-      console.log("Item database loaded", response)
     },
   }
 }

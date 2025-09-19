@@ -109,10 +109,8 @@ export default {
 
       //Update user database
       const url = 'http://localhost:4040/usersdata/update/' + this.user._id
-      // console.log(url)
       try {
-        const response = await axios.post(url, newData)
-        console.log("Avatar/Skin updated", response)
+        await axios.post(url, newData)
       } catch (err) {
         console.log(err, "in Account.vue")
       }

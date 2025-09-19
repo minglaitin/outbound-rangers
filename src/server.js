@@ -17,7 +17,7 @@ server.listen(port, () => {
     console.log('Server listening on port ' + port)
     MongoClient.connect(uri, (err, client) => {
         database = client.db("database");
-        console.log('Database connection through MongoClient successful.');
+        console.log('Database connection successful.');
     })
 });
 

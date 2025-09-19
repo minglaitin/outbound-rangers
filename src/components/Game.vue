@@ -81,8 +81,7 @@ export default {
         accumulatedScore: this.user.accumulatedScore,
 
       }
-      const response = await axios.post(url, newData)
-      console.log("Game result updated", response)
+      await axios.post(url, newData)
     }
   },
   mounted() {	
@@ -217,8 +216,6 @@ export default {
           // record the scores and coins earned from this game
           gameObject.finalCoinsEarned = coingett;
           gameObject.finalScore = score;
-          console.log("final score: " + gameObject.finalScore);
-          console.log("final coins: " + gameObject.finalCoinsEarned);
           
           // if the player is not a guest, update user database
           if (!gameObject.guest)

@@ -36,8 +36,7 @@ export default {
       }
       //Update user database
       const url = 'http://localhost:4040/usersdata/update/' + this.user._id
-      const response = await axios.post(url, newData);
-      console.log("last active time updated upon logout", response);
+      await axios.post(url, newData);
     }
   }
 }

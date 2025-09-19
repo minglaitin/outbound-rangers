@@ -76,7 +76,6 @@ export default {
         this.message = "User ID: \"" + input + "\" is added into the friend list."
         this.user.friendsID.push(input)
         this.inputString = ""
-        // this.display()
         this.updateArray(this.inputString)
         this.updateCurrentUser()
       }
@@ -104,19 +103,11 @@ export default {
         this.message = "User ID: \"" + input + "\" is removed from friend list."
         this.user.friendsID.splice(this.user.friendsID.indexOf(validEntry[0]), 1)
         this.inputString = ""
-        // this.display()
         this.updateArray(this.inputString)
         this.updateCurrentUser()
       }
       else
         this.message = "User ID: \"" + input + "\" is not found in the friend list!"
-    },
-    display(){
-      console.log("Current user: " + this.user.userID)
-      console.log("Current user: " + this.user.password)
-      console.log("Current user: " + this.user.coins)
-      console.log(this.user.friendsID.length)
-      this.user.friendsID.forEach(function (element){console.log(element)})
     },
     updateArray(input){
       //Get array of elements with input as sub string, if empty string then empty array???
@@ -136,8 +127,7 @@ export default {
       //Update user database
 
       const url = 'http://localhost:4040/usersdata/update/' + this.user._id
-      const response = await axios.post(url, {friendsID: this.user.friendsID})
-      console.log("friend list updated", response)
+      await axios.post(url, {friendsID: this.user.friendsID})
     }
   }
 }

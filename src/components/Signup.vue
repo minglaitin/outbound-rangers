@@ -35,8 +35,6 @@ export default {
   async mounted(){
     const url = 'http://localhost:4040/usersdata/'
     const response = await axios.get(url)
-    console.log(response)
-    console.log("Data mounted successfully.")
     this.userData = response.data
   },
   methods: {
@@ -56,7 +54,6 @@ export default {
       }
     },
     async signup(){
-      console.log("Requested signup procedure.");
 
       //Check password and confirm password
       if (this.password.localeCompare(this.confirmPassword) !== 0){
@@ -88,8 +85,7 @@ export default {
         friendsID: [],
         ownedItems: [],
       }
-      const response = await axios.post(url, newUser);
-      console.log(response);
+      await axios.post(url, newUser);
 
       this.$emit("reload")
       await this.$router.push('/') //Redirect to Login page

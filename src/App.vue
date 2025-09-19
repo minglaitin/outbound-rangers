@@ -154,15 +154,6 @@ export default {
     logout(){
       this.user = {}
       this.userTypeGuest = true
-      console.log("User logout")
-    },
-    updateUser(input){
-      // Check if input object is empty
-      if (Object.keys(input).length > 0) {
-        this.user = input
-        console.log("Updated User information.")
-        console.log(this.user)
-      }
     },
     async loadUserData(){
       const url = 'http://localhost:4040/usersdata/'

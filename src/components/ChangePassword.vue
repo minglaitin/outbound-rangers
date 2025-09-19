@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     async changePassword(){
-      console.log("Requested update password procedure.");
 
       //Check old password and current password
       if (this.oldPassword.localeCompare(this.user.password) !== 0){
@@ -71,9 +70,7 @@ export default {
       this.user.password = this.password
       //Update user database
       const url = 'http://localhost:4040/usersdata/update/' + this.user._id
-      const response = await axios.post(url, {password: this.user.password})
-      console.log("User database updating... Response:")
-      console.log(response)
+      await axios.post(url, {password: this.user.password})
 
       this.$emit("reload")
       await this.$router.push('/account') //Redirect to Login page
