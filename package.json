@@ -1,6 +1,6 @@
 {
   "name": "csci3100_project",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -19,6 +19,9 @@
     "mongodb": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.5.1"
+  },
+  "engines": {
+    "node": "<=16"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
