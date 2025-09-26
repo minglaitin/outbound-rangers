@@ -1,40 +1,28 @@
-# csci3100_project
+# Outbound Rangers
 
-## Initial Code notes
+This repository contains a clone of the group project ([original repo](https://github.com/CSCI3100-Project-GroupF4/csci3100-project)) developed for the CUHK course CSCI3100: Software Engineering (Spring 2021).
 
-This branch contains the prototype / early implementation of login page, main menu, leaderboard and manage friends page.
+## Overview
 
-Visiters can login as a guest or a user, where the former can only get access to "Play", "Leaderboard" and "Logout" options in main menu.
+This project is a game site with a 2D shooting game.
 
-In "Leaderboard" page, users can view the rank of other users according to "HighestScore" or "AccumulatedScore" by clikcing the buttons at head of the table.
+![Game screenshot](readme_image/game.png)
 
-In "Friends" page, users can add or remove friends as well as view the ID of their current friends stored in their friend lists.
+Users can create their account and log in to access more features, such as tracking high scores, earning in-game coins and purchasing in-game items.
 
-## Final Code notes 14-04-2021
+![Login screenshot](readme_image/login.png)
+![Account screenshot](readme_image/account.png)
+![Shop screenshot](readme_image/shop.png)
 
-This branch contains the code for submission.
+### Tools and Frameworks Used
 
+- Vue CLI
+- Node.js
+- Express.js
+- MongoDB
 
+## Image Sources
 
-## Code References:
+- [いらすとや](https://www.irasutoya.com/)
 
-### Related to server.js, all javascript files in server folder and all axios / database related codes in .vue files
-
-https://www.youtube.com/watch?v=vr6O-IYebXA
-
-https://github.com/3stbn/bucket-list-mevn/blob/master/server.js
-
-https://www.laravelcode.com/post/vuejs-crud-example-using-mongodb-express-js-vue-js-node-js
-
-https://www.youtube.com/watch?v=uqpM7WVTKI4&t=988s
-
-### Related to CSS (fixed sidebar, login page)
-
-https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp
-
-https://codepen.io/g13nn/pen/LhCIg
-
-## Image sources
-https://www.irasutoya.com/
-
-https://www.flaticon.com/
+- [Flaticon](https://www.flaticon.com/)
