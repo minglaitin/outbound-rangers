@@ -16,7 +16,7 @@ server.use(serveStatic(__dirname + '/dist'))
 const port = process.env.PORT || 4040
 let database;
 
-server.listen(port, () => {
+server.listen(port, "::", () => {
     console.log('Server listening on port ' + port)
     MongoClient.connect(uri, (err, client) => {
         database = client.db("database");
