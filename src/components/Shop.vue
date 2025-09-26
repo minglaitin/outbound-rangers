@@ -167,7 +167,7 @@ export default {
         ownedItems: this.user.ownedItems
       }
 
-      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const url = process.env.VUE_APP_BACKEND + '/usersdata/update/' + this.user._id
       await axios.post(url, newData);
     },
     imagePath(path) {
@@ -201,7 +201,7 @@ export default {
     },
     async loadDatabase(){
       // Load item database when page is loaded
-      const url = 'http://localhost:4040/itemsdata/'
+      const url = process.env.VUE_APP_BACKEND + '/itemsdata/'
       const response = await axios.get(url)
       this.avatars = response.data.filter(
           function (element) {

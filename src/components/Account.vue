@@ -72,7 +72,7 @@ export default {
   },
   async mounted() {
     //Load item data from database
-    const urlItem = 'http://localhost:4040/itemsdata/'
+    const urlItem = process.env.VUE_APP_BACKEND + '/itemsdata/'
     const responseItem = await axios.get(urlItem)
     const itemData = responseItem.data
 
@@ -108,7 +108,7 @@ export default {
       };
 
       //Update user database
-      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const url = process.env.VUE_APP_BACKEND + '/usersdata/update/' + this.user._id
       try {
         await axios.post(url, newData)
       } catch (err) {

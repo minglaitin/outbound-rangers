@@ -74,7 +74,7 @@ export default {
     },
     async updateCurrentUser(){
       //Update user database
-      const url = 'http://localhost:4040/usersdata/update/' + this.user._id
+      const url = process.env.VUE_APP_BACKEND + '/usersdata/update/' + this.user._id
       const newData = {
         coins: this.user.coins,
         highestScore: this.user.highestScore,

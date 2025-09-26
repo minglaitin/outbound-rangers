@@ -156,7 +156,7 @@ export default {
       this.userTypeGuest = true
     },
     async loadUserData(){
-      const url = 'http://localhost:4040/usersdata/'
+      const url = process.env.VUE_APP_BACKEND + '/usersdata/'
       const response = await axios.get(url)
       this.userData = response.data
     }

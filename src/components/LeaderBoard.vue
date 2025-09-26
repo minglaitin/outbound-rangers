@@ -26,7 +26,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 
 export default {
   name: "LeaderBoard",
@@ -54,20 +53,6 @@ export default {
   mounted() {
     this.sortList(this.userData, 'H')
   },
-  // async mounted(){
-  //   const url = 'http://localhost:4040/userdata/'
-  //   const response = await axios.get(url)
-  //   this.userData = response.data
-  //
-  //   const currentID = sessionStorage.getItem('currentUserID')
-  //   let found = this.userData.find(
-  //       function (element) {
-  //         return element.userID.localeCompare(currentID) === 0
-  //       }
-  //   )
-  //   this.guest = found === undefined
-  //   if (this.guest === false) this.user = found
-  // },
   methods: {
     imagePath(path) {
       return require('../assets/' + path);

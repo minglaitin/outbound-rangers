@@ -33,7 +33,7 @@ export default {
     }
   },
   async mounted(){
-    const url = 'http://localhost:4040/usersdata/'
+    const url = process.env.VUE_APP_BACKEND + '/usersdata/'
     const response = await axios.get(url)
     this.userData = response.data
   },
@@ -72,7 +72,7 @@ export default {
         return
       }
       //Post data to database
-      const url = 'http://localhost:4040/usersdata/create'
+      const url = process.env.VUE_APP_BACKEND + '/usersdata/create'
       const newUser = {
         userID: this.accountID,
         password: this.password,
