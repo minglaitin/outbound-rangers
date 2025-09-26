@@ -4,11 +4,14 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const ObjectId = require('bson').ObjectId
+const serveStatic = require('serve-static')
+
 require('dotenv').config({ path: ".env.local" })
 const uri = process.env.MONGODB_URI
 
 server.use(cors())
 server.use(bodyParser.json())
+server.use(serveStatic(__dirname + '/dist'))
 
 const port = process.env.PORT || 4040
 let database;
